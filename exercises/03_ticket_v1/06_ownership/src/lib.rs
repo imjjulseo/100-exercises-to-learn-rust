@@ -34,16 +34,16 @@ impl Ticket {
         }
     }
 
-    pub fn title(self) -> String {
-        self.title
+    pub fn title(&self) -> &String {
+        &self.title
     }
 
-    pub fn description(self) -> String {
-        self.description
+    pub fn description(&self) -> &String {
+        &self.description
     }
 
-    pub fn status(self) -> String {
-        self.status
+    pub fn status(&self) -> &String {
+        &self.status
     }
 }
 
@@ -57,8 +57,8 @@ mod tests {
         // If you change the signatures as requested, this should compile:
         // we can call these methods one after the other because they borrow `self`
         // rather than taking ownership of it.
-        assert_eq!(ticket.title(), "A title");
-        assert_eq!(ticket.description(), "A description");
-        assert_eq!(ticket.status(), "To-Do");
+        assert_eq!(&ticket.title(), "A title");
+        assert_eq!(&ticket.description(), "A description");
+        assert_eq!(&ticket.status(), "To-Do");
     }
 }
